@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Client name="RokuDLNA-4400X-7.x">
+  <!-- Roku 4 -->
+  <!-- Author: Dale Luck, Roku, Inc. -->
+  <!-- Version: 1.0.0.1 2015/9/18 YMD -->
+  <Identification>
+    <Header name="User-Agent" substring="Roku/4400X" />
+  </Identification>
+  <TranscodeTargets>
+    <VideoProfile container="mpegts" audioCodec="aac" codec="h264">
+      <Setting name="VideoEncodeFlags" value="-x264opts cabac=1" />
+    </VideoProfile>
+    <MusicProfile container="mp3" codec="mp3" />
+    <PhotoProfile container="jpeg" />
+  </TranscodeTargets>
+  <DirectPlayProfiles>
+    <VideoProfile container="mpegts" codec="h265,h264,mpeg4" audioCodec="aac,mp3,mp2" />
+    <VideoProfile container="mp4" codec="h265,h264,mpeg4" audioCodec="aac,mp3,mp2" />
+    <VideoProfile container="mov" codec="h265,h264,mpeg4" audioCodec="aac,mp3,mp2" />
+    <VideoProfile container="mkv" codec="vp9,h265,h264,mpeg4" audioCodec="aac,mp3,mp2,pcm,flac" />
+    <VideoProfile container="flv" codec="h264,mpeg4" audioCodec="aac,mp3,mp2,pcm,flac" />
+    <VideoProfile container="asf" codec="h264,mpeg4,msmpeg4v2" audioCodec="aac,mp3,mp2,pcm,flac,wmav2,wmapro" />
+    <MusicProfile container="mp3" codec="mp2,mp3" />
+    <MusicProfile container="mp4" codec="aac" />
+    <MusicProfile container="flac" codec="flac" />
+    <MusicProfile container="asf" codec="wmav2,wmapro" />
+    <MusicProfile container="wav" codec="pcm" />
+    <PhotoProfile container="jpeg,png,gif" />
+  </DirectPlayProfiles>
+  <CodecProfiles>
+    <VideoCodec name="h265,vp9">
+      <Limitations>
+        <UpperBound name="video.width" value="3840" />
+        <UpperBound name="video.height" value="2176" />
+        <UpperBound name="video.bitrate" value="16000" />
+      </Limitations>
+    </VideoCodec>
+    <VideoCodec name="h264,mpeg4">
+      <Limitations>
+        <UpperBound name="video.width" value="1920" />
+        <UpperBound name="video.height" value="1088" />
+        <UpperBound name="video.bitrate" value="16000" />
+      </Limitations>
+    </VideoCodec>
+    <VideoAudioCodec name="pcm,mp2,mp3,wma">
+      <Limitations>
+        <UpperBound name="audio.channels" value="2" />
+      </Limitations>
+    </VideoAudioCodec>
+    <VideoAudioCodec name="aac,flac">
+      <Limitations>
+        <UpperBound name="audio.channels" value="6" />
+      </Limitations>
+    </VideoAudioCodec>
+    <MusicCodec name="aac,flac">
+      <Limitations>
+        <UpperBound name="audio.channels" value="6" />
+      </Limitations>
+    </MusicCodec>
+    <MusicCodec name="mp3">
+      <Limitations>
+        <UpperBound name="audio.bitrate" value="320" />
+        <UpperBound name="audio.channels" value="2" />
+      </Limitations>
+    </MusicCodec>
+  </CodecProfiles>
+  <ContainerProfiles>
+    <PhotoContainer name="*">
+      <Limitations>
+        <UpperBound name="media.width" value="3840" />
+        <UpperBound name="media.height" value="2160" />
+      </Limitations>
+    </PhotoContainer>
+  </ContainerProfiles>
+  <DlnaMediaProfiles>
+    <DlnaMusicProfile container="wav" mimeType="audio/wav" />
+  </DlnaMediaProfiles>
+</Client>
